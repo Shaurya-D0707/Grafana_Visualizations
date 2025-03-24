@@ -1,0 +1,208 @@
+{
+  "id": 7,
+  "type": "bargauge",
+  "title": "Distribution by Application",
+  "gridPos": {
+    "x": 15,
+    "y": 0,
+    "h": 12,
+    "w": 8
+  },
+  "fieldConfig": {
+    "defaults": {
+      "mappings": [],
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "color": "green",
+            "value": null
+          },
+          {
+            "color": "red",
+            "value": 80
+          }
+        ]
+      },
+      "color": {
+        "mode": "thresholds"
+      }
+    },
+    "overrides": []
+  },
+  "pluginVersion": "11.5.2",
+  "targets": [
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "eeaom3mwaanlsb"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "rawQuery": true,
+      "rawSql": "SELECT \r\n    \"name\",\r\n    SUM(ulbytes) AS \"WHATSAPP_IM\"\r\nFROM \r\n    dpi_traffic\r\nWHERE \r\n    \"name\" = 'WHATSAPP_IM'\r\nGROUP BY \r\n    \"name\";\r\n",
+      "refId": "A",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "eeaom3mwaanlsb"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "hide": false,
+      "rawQuery": true,
+      "rawSql": "SELECT \r\n    \"name\",\r\n    SUM(ulbytes) AS \"NETFLIX\"\r\nFROM \r\n    dpi_traffic\r\nWHERE \r\n    \"name\" = 'NETFLIX'\r\nGROUP BY \r\n    \"name\";\r\n",
+      "refId": "B",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "eeaom3mwaanlsb"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "hide": false,
+      "rawQuery": true,
+      "rawSql": "SELECT \r\n    \"name\",\r\n    SUM(ulbytes) AS \"HTTP_SECURE\"\r\nFROM \r\n    dpi_traffic\r\nWHERE \r\n    \"name\" = 'HTTP_SECURE'\r\nGROUP BY \r\n    \"name\";\r\n",
+      "refId": "C",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "eeaom3mwaanlsb"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "hide": false,
+      "rawQuery": true,
+      "rawSql": "SELECT \r\n    \"name\",\r\n    SUM(ulbytes) AS \"UNIDENTIFIABLE_APP\"\r\n    FROM \r\n    dpi_traffic\r\nWHERE \r\n    \"name\" = 'UNIDENTIFIABLE_APP'\r\nGROUP BY \r\n    \"name\";\r\n",
+      "refId": "D",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "begf9k3ifbta8c"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "hide": false,
+      "rawQuery": true,
+      "rawSql": "SELECT \r\n    \"name\",\r\n    SUM(ulbytes) AS \"GOOGLE_PLATFORM\"\r\n    FROM \r\n    dpi_traffic\r\nWHERE \r\n    \"name\" = 'GOOGLE_PLATFORM' OR \"name\" = 'GOOGLE'\r\nGROUP BY \r\n    \"name\";\r\n",
+      "refId": "E",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    }
+  ],
+  "datasource": {
+    "type": "grafana-postgresql-datasource",
+    "uid": "begf9k3ifbta8c"
+  },
+  "options": {
+    "reduceOptions": {
+      "values": false,
+      "calcs": [
+        "lastNotNull"
+      ],
+      "fields": ""
+    },
+    "orientation": "horizontal",
+    "legend": {
+      "showLegend": false,
+      "displayMode": "list",
+      "placement": "bottom",
+      "calcs": []
+    },
+    "displayMode": "gradient",
+    "valueMode": "text",
+    "namePlacement": "auto",
+    "showUnfilled": true,
+    "sizing": "auto",
+    "minVizWidth": 8,
+    "minVizHeight": 16,
+    "maxVizHeight": 300
+  }
+}

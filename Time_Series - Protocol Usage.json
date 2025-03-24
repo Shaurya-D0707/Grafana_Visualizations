@@ -1,0 +1,255 @@
+{
+  "id": 8,
+  "type": "timeseries",
+  "title": "Time-Based Protocol Usage",
+  "gridPos": {
+    "x": 0,
+    "y": 8,
+    "h": 8,
+    "w": 12
+  },
+  "fieldConfig": {
+    "defaults": {
+      "custom": {
+        "drawStyle": "line",
+        "lineInterpolation": "linear",
+        "barAlignment": 0,
+        "barWidthFactor": 0.6,
+        "lineWidth": 1,
+        "fillOpacity": 0,
+        "gradientMode": "none",
+        "spanNulls": false,
+        "insertNulls": false,
+        "showPoints": "auto",
+        "pointSize": 5,
+        "stacking": {
+          "mode": "none",
+          "group": "A"
+        },
+        "axisPlacement": "auto",
+        "axisLabel": "",
+        "axisColorMode": "text",
+        "axisBorderShow": false,
+        "scaleDistribution": {
+          "type": "linear"
+        },
+        "axisCenteredZero": false,
+        "hideFrom": {
+          "tooltip": false,
+          "viz": false,
+          "legend": false
+        },
+        "thresholdsStyle": {
+          "mode": "off"
+        }
+      },
+      "color": {
+        "mode": "palette-classic"
+      },
+      "mappings": [],
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "color": "green",
+            "value": null
+          },
+          {
+            "color": "red",
+            "value": 80
+          }
+        ]
+      }
+    },
+    "overrides": []
+  },
+  "pluginVersion": "11.5.2",
+  "targets": [
+    {
+      "editorMode": "code",
+      "format": "table",
+      "rawQuery": true,
+      "rawSql": "SELECT\r\n  time AS \"time\",\r\n  \"PROTO\" AS protocol,\r\n  dpi_bytes AS TCP\r\nFROM\r\n  public.dpi_traffic\r\nWHERE\r\n  $__timeFilter(time)\r\n  AND \"PROTO\" = 'TCP'\r\nORDER BY\r\n  time\r\n",
+      "refId": "A",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "begf9k3ifbta8c"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "hide": false,
+      "rawQuery": true,
+      "rawSql": "SELECT\r\n  time AS \"time\",\r\n  \"PROTO\" AS protocol,\r\n  dpi_bytes AS UDP\r\nFROM\r\n  public.dpi_traffic\r\nWHERE\r\n  $__timeFilter(time)\r\n  AND \"PROTO\" = 'UDP'\r\nORDER BY\r\n  time\r\n",
+      "refId": "B",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "begf9k3ifbta8c"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "hide": false,
+      "rawQuery": true,
+      "rawSql": "SELECT\r\n  time AS \"time\",\r\n  \"PROTO\" AS protocol,\r\n  dpi_bytes AS HTTPS\r\nFROM\r\n  public.dpi_traffic\r\nWHERE\r\n  $__timeFilter(time)\r\n  AND \"PROTO\" = 'HTTPS'\r\nORDER BY\r\n  time\r\n",
+      "refId": "C",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "begf9k3ifbta8c"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "hide": false,
+      "rawQuery": true,
+      "rawSql": "SELECT\r\n  time AS \"time\",\r\n  \"PROTO\" AS protocol,\r\n  dpi_bytes AS FTP\r\nFROM\r\n  public.dpi_traffic\r\nWHERE\r\n  $__timeFilter(time)\r\n  AND \"PROTO\" = 'FTP'\r\nORDER BY\r\n  time\r\n",
+      "refId": "D",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "begf9k3ifbta8c"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "hide": false,
+      "rawQuery": true,
+      "rawSql": "SELECT\r\n  time AS \"time\",\r\n  \"PROTO\" AS protocol,\r\n  dpi_bytes AS DNS\r\nFROM\r\n  public.dpi_traffic\r\nWHERE\r\n  $__timeFilter(time)\r\n  AND \"PROTO\" = 'DNS'\r\nORDER BY\r\n  time\r\n",
+      "refId": "E",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "begf9k3ifbta8c"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "hide": false,
+      "rawQuery": true,
+      "rawSql": "SELECT\r\n  time AS \"time\",\r\n  \"PROTO\" AS protocol,\r\n  dpi_bytes AS HTTP\r\nFROM\r\n  public.dpi_traffic\r\nWHERE\r\n  $__timeFilter(time)\r\n  AND \"PROTO\" = 'HTTP'\r\nORDER BY\r\n  time\r\n",
+      "refId": "F",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    }
+  ],
+  "datasource": {
+    "type": "grafana-postgresql-datasource",
+    "uid": "begf9k3ifbta8c"
+  },
+  "options": {
+    "tooltip": {
+      "mode": "single",
+      "sort": "none",
+      "hideZeros": false
+    },
+    "legend": {
+      "showLegend": true,
+      "displayMode": "list",
+      "placement": "bottom",
+      "calcs": []
+    }
+  }
+}

@@ -1,0 +1,264 @@
+{
+  "id": 4,
+  "type": "piechart",
+  "title": "Protocol Distribution",
+  "gridPos": {
+    "x": 0,
+    "y": 20,
+    "h": 8,
+    "w": 7
+  },
+  "fieldConfig": {
+    "defaults": {
+      "custom": {
+        "hideFrom": {
+          "tooltip": false,
+          "viz": false,
+          "legend": false
+        }
+      },
+      "color": {
+        "mode": "palette-classic"
+      },
+      "mappings": []
+    },
+    "overrides": [
+      {
+        "__systemRef": "hideSeriesFrom",
+        "matcher": {
+          "id": "byNames",
+          "options": {
+            "mode": "exclude",
+            "names": [
+              "packet_count"
+            ],
+            "prefix": "All except:",
+            "readOnly": true
+          }
+        },
+        "properties": [
+          {
+            "id": "custom.hideFrom",
+            "value": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "pluginVersion": "11.5.2",
+  "targets": [
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "eeaom3mwaanlsb"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "rawQuery": true,
+      "rawSql": "-- Query for TCP\r\nSELECT \r\n    COUNT(*) AS \"TCP\"\r\nFROM \r\n    dpi_traffic\r\nWHERE \r\n    \"PROTO\" = 'TCP';",
+      "refId": "A",
+      "sql": {
+        "columns": [
+          {
+            "name": "COUNT",
+            "parameters": [
+              {
+                "name": "name",
+                "type": "functionParameter"
+              }
+            ],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "name": "ip_proto",
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      },
+      "table": "dpi_traffic"
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "eeaom3mwaanlsb"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "hide": false,
+      "rawQuery": true,
+      "rawSql": "-- Query for TCP\r\nSELECT \r\n    COUNT(*) AS \"UDP\"\r\nFROM \r\n    dpi_traffic\r\nWHERE \r\n    \"PROTO\" = 'UDP';",
+      "refId": "B",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "eeaom3mwaanlsb"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "hide": false,
+      "rawQuery": true,
+      "rawSql": "-- Query for TCP\r\nSELECT \r\n    COUNT(*) AS \"ICMP\"\r\nFROM \r\n    dpi_traffic\r\nWHERE \r\n    \"PROTO\" = 'ICMP';",
+      "refId": "C",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "eeaom3mwaanlsb"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "hide": false,
+      "rawQuery": true,
+      "rawSql": "-- Query for TCP\r\nSELECT \r\n    COUNT(*) AS \"HTTP\"\r\nFROM \r\n    dpi_traffic\r\nWHERE \r\n    \"PROTO\" = 'HTTP';",
+      "refId": "D",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "eeaom3mwaanlsb"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "hide": false,
+      "rawQuery": true,
+      "rawSql": "-- Query for TCP\r\nSELECT \r\n    COUNT(*) AS \"HTTPS\"\r\nFROM \r\n    dpi_traffic\r\nWHERE \r\n    \"PROTO\" = 'HTTPS';",
+      "refId": "E",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "eeaom3mwaanlsb"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "hide": false,
+      "rawQuery": true,
+      "rawSql": "-- Query for TCP\r\nSELECT \r\n    COUNT(*) AS \"FTP\"\r\nFROM \r\n    dpi_traffic\r\nWHERE \r\n    \"PROTO\" = 'FTP';",
+      "refId": "F",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    }
+  ],
+  "datasource": {
+    "type": "grafana-postgresql-datasource",
+    "uid": "begf9k3ifbta8c"
+  },
+  "options": {
+    "reduceOptions": {
+      "values": false,
+      "calcs": [
+        "lastNotNull"
+      ],
+      "fields": "/.*/"
+    },
+    "pieType": "pie",
+    "tooltip": {
+      "mode": "single",
+      "sort": "none",
+      "hideZeros": false
+    },
+    "legend": {
+      "showLegend": true,
+      "displayMode": "list",
+      "placement": "bottom",
+      "values": []
+    },
+    "displayLabels": [
+      "percent"
+    ]
+  }
+}

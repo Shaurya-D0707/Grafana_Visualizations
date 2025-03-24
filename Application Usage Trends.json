@@ -1,0 +1,226 @@
+{
+  "id": 9,
+  "type": "timeseries",
+  "title": "Application Usage Trends",
+  "gridPos": {
+    "x": 0,
+    "y": 0,
+    "h": 8,
+    "w": 12
+  },
+  "fieldConfig": {
+    "defaults": {
+      "custom": {
+        "drawStyle": "line",
+        "lineInterpolation": "linear",
+        "barAlignment": 0,
+        "barWidthFactor": 0.6,
+        "lineWidth": 1,
+        "fillOpacity": 0,
+        "gradientMode": "none",
+        "spanNulls": false,
+        "insertNulls": false,
+        "showPoints": "auto",
+        "pointSize": 5,
+        "stacking": {
+          "mode": "none",
+          "group": "A"
+        },
+        "axisPlacement": "auto",
+        "axisLabel": "",
+        "axisColorMode": "text",
+        "axisBorderShow": false,
+        "scaleDistribution": {
+          "type": "linear"
+        },
+        "axisCenteredZero": false,
+        "hideFrom": {
+          "tooltip": false,
+          "viz": false,
+          "legend": false
+        },
+        "thresholdsStyle": {
+          "mode": "off"
+        }
+      },
+      "color": {
+        "mode": "palette-classic"
+      },
+      "mappings": [],
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "color": "green",
+            "value": null
+          },
+          {
+            "color": "red",
+            "value": 80
+          }
+        ]
+      }
+    },
+    "overrides": []
+  },
+  "pluginVersion": "11.5.2",
+  "targets": [
+    {
+      "editorMode": "code",
+      "format": "table",
+      "rawQuery": true,
+      "rawSql": "SELECT\r\n  time AS \"time\",\r\n  dpi_bytes AS \"UNIDENTIFIABLE_APP\"\r\nFROM\r\n  public.dpi_traffic\r\nWHERE\r\n  $__timeFilter(time)\r\n  AND name = 'UNIDENTIFIABLE_APP'\r\nORDER BY\r\n  time\r\n",
+      "refId": "A",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "begf9k3ifbta8c"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "hide": false,
+      "rawQuery": true,
+      "rawSql": "SELECT\r\n  time AS \"time\",\r\n  dpi_bytes AS \"NETFLIX\"\r\nFROM\r\n  public.dpi_traffic\r\nWHERE\r\n  $__timeFilter(time)\r\n  AND name = 'NETFLIX'\r\nORDER BY\r\n  time\r\n",
+      "refId": "B",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "begf9k3ifbta8c"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "hide": false,
+      "rawQuery": true,
+      "rawSql": "SELECT\r\n  time AS \"time\",\r\n  dpi_bytes AS \"GOOGLE_PLATFORM\"\r\nFROM\r\n  public.dpi_traffic\r\nWHERE\r\n  $__timeFilter(time)\r\n  AND name = 'GOOGLE_PLATFORM' OR name = 'GOOGLE'\r\nORDER BY\r\n  time\r\n",
+      "refId": "C",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "begf9k3ifbta8c"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "hide": false,
+      "rawQuery": true,
+      "rawSql": "SELECT\r\n  time AS \"time\",\r\n  dpi_bytes AS \"HTTP_SECURE\"\r\nFROM\r\n  public.dpi_traffic\r\nWHERE\r\n  $__timeFilter(time)\r\n  AND name = 'HTTP_SECURE'\r\nORDER BY\r\n  time\r\n",
+      "refId": "D",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "begf9k3ifbta8c"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "hide": false,
+      "rawQuery": true,
+      "rawSql": "SELECT\r\n  time AS \"time\",\r\n  dpi_bytes AS \"TWITTER\"\r\nFROM\r\n  public.dpi_traffic\r\nWHERE\r\n  $__timeFilter(time)\r\n  AND name = 'TWITTER'\r\nORDER BY\r\n  time\r\n",
+      "refId": "E",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    }
+  ],
+  "datasource": {
+    "type": "grafana-postgresql-datasource",
+    "uid": "begf9k3ifbta8c"
+  },
+  "options": {
+    "tooltip": {
+      "mode": "single",
+      "sort": "none",
+      "hideZeros": false
+    },
+    "legend": {
+      "showLegend": true,
+      "displayMode": "list",
+      "placement": "bottom",
+      "calcs": []
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "id": 6,
+  "type": "stat",
+  "title": "Packets Downloaded",
+  "gridPos": {
+    "x": 4,
+    "y": 16,
+    "h": 4,
+    "w": 4
+  },
+  "fieldConfig": {
+    "defaults": {
+      "mappings": [],
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "color": "green",
+            "value": null
+          },
+          {
+            "color": "red",
+            "value": 80
+          }
+        ]
+      },
+      "color": {
+        "fixedColor": "green",
+        "mode": "fixed"
+      }
+    },
+    "overrides": []
+  },
+  "pluginVersion": "11.5.2",
+  "targets": [
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "eeaom3mwaanlsb"
+      },
+      "editorMode": "builder",
+      "format": "table",
+      "rawSql": "SELECT SUM(dlpkts) AS \"Download Data\" FROM dpi_traffic LIMIT 50 ",
+      "refId": "A",
+      "sql": {
+        "columns": [
+          {
+            "alias": "\"Download Data\"",
+            "name": "SUM",
+            "parameters": [
+              {
+                "name": "dlpkts",
+                "type": "functionParameter"
+              }
+            ],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      },
+      "table": "dpi_traffic"
+    }
+  ],
+  "datasource": {
+    "type": "grafana-postgresql-datasource",
+    "uid": "begf9k3ifbta8c"
+  },
+  "options": {
+    "reduceOptions": {
+      "values": false,
+      "calcs": [
+        "lastNotNull"
+      ],
+      "fields": ""
+    },
+    "orientation": "auto",
+    "textMode": "value_and_name",
+    "wideLayout": true,
+    "colorMode": "background_solid",
+    "graphMode": "area",
+    "justifyMode": "auto",
+    "showPercentChange": false,
+    "percentChangeColorMode": "standard"
+  }
+}
